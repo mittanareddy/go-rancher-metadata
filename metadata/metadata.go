@@ -3,6 +3,7 @@ package metadata
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"io/ioutil"
 	"net/http"
 )
@@ -143,6 +144,8 @@ func (m *Client) GetStackNameByContainerName(containerName string) (string, erro
 		return "", err
 	}
 	for _, container := range containers {
+	    log.Println("PassedConatinerName:", containerName)
+	    log.Println("ContainerName:", container.Name)
 		if container.Name == containerName  {
 		    stackName = container.StackName
 			break
