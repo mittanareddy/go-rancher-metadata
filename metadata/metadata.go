@@ -136,6 +136,21 @@ func (m *Client) GetContainers() ([]Container, error) {
 	return containers, nil
 }
 
+func (m *Client) GetStackNameByContainerName(containerName string) (string, error) {
+	containers, err := m.GetContainers()
+	stackName := ""
+	if err != nil {
+		return "", err
+	}
+	for _, container := range containers {
+		if container.Name == containerName  {
+		    stackName = container.Name
+			break
+		}
+	}
+	return stackName, nil
+}
+
 func (m *Client) GetServiceContainers(serviceName string, stackName string) ([]Container, error) {
 	var serviceContainers = []Container{}
 	containers, err := m.GetContainers()
