@@ -144,7 +144,7 @@ func (m *Client) GetStackNameByContainerName(containerName string) (string, erro
 	}
 	for _, container := range containers {
 		if container.Name == containerName  {
-		    stackName = container.Name
+		    stackName = container.StackName
 			break
 		}
 	}
