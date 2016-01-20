@@ -1,10 +1,11 @@
 package metadata
 
 type Stack struct {
-	EnvironmentName string    `json:"environment_name"`
-	Name            string    `json:"name"`
-	Services        []Service `json:"services"`
+    EnvironmentName string   `json:"environment_name"`
+    Name            string   `json:"name"`
+    Services        []string `json:"services"`
 }
+
 
 type Service struct {
 	Scale       int                    `json:"scale"`
@@ -13,11 +14,10 @@ type Service struct {
 	Kind        string                 `json:"kind"`
 	Hostname    string                 `json:"hostname"`
 	Vip         string                 `json:"vip"`
-	CreateIndex int                    `json:"create_index"`
 	UUID        string                 `json:"uuid"`
 	ExternalIps []string               `json:"external_ips"`
 	Sidekicks   []string               `json:"sidekicks"`
-	Containers  []Container            `json:"containers"`
+    Containers  []string               `json:"containers"`
 	Ports       []string               `json:"ports"`
 	Labels      map[string]string      `json:"labels"`
 	Links       map[string]string      `json:"links"`
@@ -34,7 +34,6 @@ type Container struct {
 	Labels      map[string]string `json:"labels"`
 	CreateIndex int               `json:"create_index"`
 	HostUUID    string            `json:"host_uuid"`
-	UUID        string            `json:"uuid"`
 }
 
 type Host struct {
